@@ -1,5 +1,5 @@
 PipelineSecrets:
-  DockerConfig: '{"auths":{"acctestaks1.azurecr.io":{"auth":"YWNjdGVzdGFrczE6Y05raFdrWVFGSGJFZWdHalpGanhPem01REhBYS8yT2w="}}}'
+  DockerConfig: '{"auths":{"acctestaks1.azurecr.io":{"auth":"YWNjdGVzdGFrczE6MzVab00rWURreVk1SGpyalBOM3Y0U0t1cEIxVTVETDI="}}}'
 cleanup:
   Annotations:
     helm.sh/hook: pre-delete
