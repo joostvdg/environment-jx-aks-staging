@@ -22,6 +22,7 @@ expose:
     domain: aks.kearos.net
     exposer: Ingress
     http: "true"
+    tlsacme: "false"
 jenkins:
   Servers:
     Global:
