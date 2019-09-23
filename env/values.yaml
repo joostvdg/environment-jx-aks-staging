@@ -19,7 +19,7 @@ expose:
   - --v
   - 4
   config:
-    domain: aks.kearos.net
+    domain: jx-aks.kearos.net
     exposer: Ingress
     http: "true"
     tlsacme: "false"
