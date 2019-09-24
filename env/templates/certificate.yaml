@@ -1,0 +1,11 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: tls-staging-jx-aks-kearos-net-p
+spec:
+  commonName: '*.staging.jx-aks.kearos.net'
+  dnsNames:
+  - '*.staging.jx-aks.kearos.net'
+  issuerRef:
+    name: letsencrypt-prod
+  secretName: tls-staging-jx-aks-kearos-net-p

@@ -1,0 +1,21 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    email: joostvdg@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - dns01:
+        clouddns:
+          project: kearos-gcp
+          serviceAccountSecretRef:
+            key: credentials.json
+            name: external-dns-gcp-sa
+      selector:
+        dnsNames:
+        - '*.staging.jx-aks.kearos.net'
+        - staging.jx-aks.kearos.net
