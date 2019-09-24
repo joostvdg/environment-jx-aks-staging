@@ -1,0 +1,118 @@
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-svwfb-8[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-2mlgj[0m
+{"level":"warn","ts":1569331558.3314025,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1569331558.331763,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-svwfb-8[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-th54k[0m
+{"level":"warn","ts":1569331560.4139116,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1569331560.415521,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source /workspace/source/env\""}
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-svwfb-8[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-svwfb-8[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-joostvdg-environment-jx-aks-sta-pxnr9[0m
+{"level":"warn","ts":1569331570.6534426,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1569331571.738613,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/********/environment-**-aks-staging.git @ v0.0.8 in path /workspace/source"}
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-svwfb-8[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:6b94b21ca754d72a60195524b6c1e2f5f5e74dc0
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-svwfb-8[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /builder/home/git/credentials
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-svwfb-8[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-apply[0m
+Modified file /workspace/source/env/Chart.yaml to set the chart to version 8
+Copying the helm source directory /workspace/source/env to a temporary location for building and applying /tmp/**-helm-apply-246662425/env
+Applying helm chart at /tmp/**-helm-apply-246662425/env as release name ** to namespace **-staging
+verifying the helm requirements versions in dir: . using version stream URL:  and git ref: 
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+Ignoring templates/.gitignore
+Ignoring templates/certificate.yaml
+Ignoring templates/issuer.yaml
+Wrote chart values.yaml /tmp/**-helm-apply-246662425/env/values.yaml generated from directory tree
+generated helm /tmp/**-helm-apply-246662425/env/values.yaml
+
+PipelineSecrets:
+  DockerConfig: '{"auths":{"acctestaks1.azurecr.io":{"auth":"YWNjdGVzdGFrczE6MzVab00rWURreVk1SGpyalBOM3Y0U0t1cEIxVTVETDI="}}}'
+cbcore:
+  OperationsCenter:
+    CSRF:
+      ProxyCompatibility: true
+    HostName: cbcore.staging.**-aks.kearos.net
+    Image:
+      dockerImage: cloudbees/cloudbees-cloud-core-oc:2.176.3.3
+    Ingress:
+      Annotations:
+        kubernetes.io/ingress.class: nginx
+        kubernetes.io/tls-acme: "true"
+        nginx.ingress.kubernetes.io/proxy-body-size: 50m
+        nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      tls:
+        Enable: true
+        Host: cbcore.staging.**-aks.kearos.net
+        SecretName: tls-staging-**-aks-kearos-net-p
+    ServiceType: ClusterIP
+  nginx-ingress:
+    Enabled: false
+cleanup:
+  Annotations:
+    helm.sh/hook: pre-delete
+    helm.sh/hook-delete-policy: hook-succeeded
+  Args:
+  - --cleanup
+controllerbuild:
+  enabled: true
+controllerworkflow:
+  enabled: false
+dockerRegistry: acctestaks1.azurecr.io
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  Args:
+  - --v
+  - 4
+  config:
+    domain: staging.**-aks.kearos.net
+    exposer: Ingress
+    http: "false"
+    tlsacme: "true"
+grafana:
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      kubernetes.io/tls-acme: "true"
+    enabled: true
+    hosts:
+    - grafana.staging.**-aks.kearos.net
+    tls:
+    - hosts:
+      - grafana.staging.**-aks.kearos.net
+      secretName: tls-staging-**-aks-kearos-net-p
+jenkins:
+  Servers:
+    Global:
+      EnvVars:
+        TILLER_NAMESPACE: kube-system
+  enabled: false
+prow: {}
+
+Using values files: /tmp/**-helm-apply-246662425/env/values.yaml
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+Adding missing Helm repo: raw.githubusercontent.com https://raw.githubusercontent.com/********/helm-repo/master/
+Successfully added Helm repository raw.githubusercontent.com.
+Adding missing Helm repo: charts.cloudbees.com https://charts.cloudbees.com/public/cloudbees
+Successfully added Helm repository charts.cloudbees.com.
+Applying Apps chart overrides
+Applying chart overrides
+
+
