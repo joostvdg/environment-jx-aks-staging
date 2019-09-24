@@ -1,0 +1,90 @@
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-4nz7d[0m
+{"level":"warn","ts":1569325450.7614877,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1569325450.7620003,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-7zr8v[0m
+{"level":"warn","ts":1569325452.64219,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1569325452.6439097,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source /workspace/source/env\""}
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-joostvdg-environment-jx-aks-sta-bd47c[0m
+{"level":"warn","ts":1569325465.438867,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1569325466.4734323,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/********/environment-**-aks-staging.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:a733f23d713950f13c2134c9dea71ecbe84118fd
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /builder/home/git/credentials
+
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-apply[0m
+Modified file /workspace/source/env/Chart.yaml to set the chart to version 1
+Namespace **-staging created 
+Copying the helm source directory /workspace/source/env to a temporary location for building and applying /tmp/**-helm-apply-134504747/env
+Applying helm chart at /tmp/**-helm-apply-134504747/env as release name ** to namespace **-staging
+verifying the helm requirements versions in dir: . using version stream URL:  and git ref: 
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+Ignoring templates/.gitignore
+Wrote chart values.yaml /tmp/**-helm-apply-134504747/env/values.yaml generated from directory tree
+generated helm /tmp/**-helm-apply-134504747/env/values.yaml
+
+PipelineSecrets:
+  DockerConfig: '{"auths":{"acctestaks1.azurecr.io":{"auth":"YWNjdGVzdGFrczE6MzVab00rWURreVk1SGpyalBOM3Y0U0t1cEIxVTVETDI="}}}'
+cleanup:
+  Annotations:
+    helm.sh/hook: pre-delete
+    helm.sh/hook-delete-policy: hook-succeeded
+  Args:
+  - --cleanup
+controllerbuild:
+  enabled: true
+controllerworkflow:
+  enabled: false
+dockerRegistry: acctestaks1.azurecr.io
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  Args:
+  - --v
+  - 4
+  config:
+    domain: staging.**-aks.kearos.net
+    exposer: Ingress
+    http: "false"
+    tlsacme: "true"
+jenkins:
+  Servers:
+    Global:
+      EnvVars:
+        TILLER_NAMESPACE: kube-system
+  enabled: false
+prow: {}
+
+Using values files: /tmp/**-helm-apply-134504747/env/values.yaml
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+Adding missing Helm repo: raw.githubusercontent.com https://raw.githubusercontent.com/********/helm-repo/master/
+Successfully added Helm repository raw.githubusercontent.com.
+error: failed to build the dependencies of chart '/tmp/**-helm-apply-134504747/env': failed to run 'helm dependency build' command in directory '/tmp/**-helm-apply-134504747/env', output: 'Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get http://127.0.0.1:8879/charts/index.yaml: dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "jenkins-x-chartmuseum" chart repository
+...Successfully got an update from the "raw.githubusercontent.com" chart repository
+...Successfully got an update from the "chartmuseum.jenkins-x.io" chart repository
+...Successfully got an update from the "storage.googleapis.com" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+Error: Can't get a valid version for repositories opendj4. Try changing the version constraint in requirements.yaml'
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-helm-apply'. The execution of the pipeline has stopped.[0m
