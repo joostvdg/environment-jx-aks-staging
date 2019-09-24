@@ -31,8 +31,8 @@ jenkins:
   enabled: false
 prow: {}
 
-#grafana:
- # ingress:
- #   enabled: true
- #   hosts:
- #   - grafana.staging.jx-aks.kearos.net
+grafana:
+  ingress:
+    enabled: true
+    hosts:
+    - grafana.staging.jx-aks.kearos.net
