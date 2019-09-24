@@ -33,6 +33,8 @@ prow: {}
 
 cbcore:
   OperationsCenter:
+    Image:
+      dockerImage: cloudbees/cloudbees-cloud-core-oc:2.176.3.3
     CSRF:
       ProxyCompatibility: true
     HostName: cbcore.staging.jx-aks.kearos.net
