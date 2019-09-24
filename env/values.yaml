@@ -19,10 +19,10 @@ expose:
   - --v
   - 4
   config:
-    domain: jx-aks.kearos.net
+    domain: staging.jx-aks.kearos.net
     exposer: Ingress
-    http: "true"
-    tlsacme: "false"
+    http: "false"
+    tlsacme: "true"
 jenkins:
   Servers:
     Global:
