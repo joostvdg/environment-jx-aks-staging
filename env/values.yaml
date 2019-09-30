@@ -1,5 +1,26 @@
 PipelineSecrets:
   DockerConfig: '{"auths":{"acctestaks1.azurecr.io":{"auth":"YWNjdGVzdGFrczE6MzVab00rWURreVk1SGpyalBOM3Y0U0t1cEIxVTVETDI="}}}'
+cbcore:
+  OperationsCenter:
+    CSRF:
+      ProxyCompatibility: true
+    HostName: cbcore.staging.jx-aks.kearos.net
+    Image:
+      dockerImage: cloudbees/cloudbees-cloud-core-oc:2.176.3.3
+    Ingress:
+      Annotations:
+        kubernetes.io/ingress.class: nginx
+        kubernetes.io/tls-acme: "true"
+        nginx.ingress.kubernetes.io/proxy-body-size: 50m
+        nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      tls:
+        Enable: true
+        Host: cbcore.staging.jx-aks.kearos.net
+        SecretName: tls-staging-jx-aks-kearos-net-p
+    ServiceType: ClusterIP
+  nginx-ingress:
+    Enabled: false
 cleanup:
   Annotations:
     helm.sh/hook: pre-delete
@@ -23,113 +44,91 @@ expose:
     exposer: Ingress
     http: "false"
     tlsacme: "true"
+grafana:
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+      - disableDeletion: true
+        editable: true
+        folder: default
+        name: Default
+        options:
+          path: /var/lib/grafana/dashboards/default
+        orgId: 1
+        type: file
+  dashboards:
+    default:
+      Capacity:
+        datasource: Prometheus
+        gnetId: 5228
+        revision: 6
+      Costs:
+        datasource: Prometheus
+        gnetId: 8670
+        revision: 1
+      Costs-Pod:
+        datasource: Prometheus
+        gnetId: 6879
+        revision: 1
+      Deployments:
+        datasource: Prometheus
+        gnetId: 8588
+        revision: 1
+      Jenkins-OLD:
+        datasource: Prometheus
+        gnetId: 9964
+        revision: 1
+      Summary:
+        datasource: Prometheus
+        gnetId: 8685
+        revision: 1
+      Volumes:
+        datasource: Prometheus
+        gnetId: 6739
+        revision: 1
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+      - access: proxy
+        isDefault: true
+        name: Prometheus
+        type: prometheus
+        url: http://jx-prom-server
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      kubernetes.io/tls-acme: "true"
+    enabled: true
+    hosts:
+    - grafana.staging.jx-aks.kearos.net
+    tls:
+    - hosts:
+      - grafana.staging.jx-aks.kearos.net
+      secretName: tls-staging-jx-aks-kearos-net-p
 jenkins:
   Servers:
     Global:
       EnvVars:
         TILLER_NAMESPACE: kube-system
   enabled: false
-prow: {}
-
-cbcore:
-  OperationsCenter:
-    Image:
-      dockerImage: cloudbees/cloudbees-cloud-core-oc:2.176.3.3
-    CSRF:
-      ProxyCompatibility: true
-    HostName: cbcore.staging.jx-aks.kearos.net
-    Ingress:
-      Annotations:
+keycloak:
+  keycloak:
+    image:
+      tag: 7.0.0
+    ingress:
+      annotations:
         kubernetes.io/ingress.class: nginx
         kubernetes.io/tls-acme: "true"
-        #nginx.ingress.kubernetes.io/app-root: https://$best_http_host/cjoc/teams-check/
-        nginx.ingress.kubernetes.io/proxy-body-size: 50m
-        nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
-        nginx.ingress.kubernetes.io/ssl-redirect: "true"
-      tls:
-        Enable: true
-        Host: cbcore.staging.jx-aks.kearos.net
-        SecretName: tls-staging-jx-aks-kearos-net-p
-    ServiceType: ClusterIP
-  nginx-ingress:
-    Enabled: false
-
-grafana:
-  ingress:
-    enabled: true
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      kubernetes.io/tls-acme: "true"
-    hosts:
-    - grafana.staging.jx-aks.kearos.net
-    tls:
-    - secretName: tls-staging-jx-aks-kearos-net-p 
+      enabled: true
       hosts:
-        - grafana.staging.jx-aks.kearos.net
-  datasources:
-    datasources.yaml:
-      apiVersion: 1
-      datasources:
-      - name: Prometheus
-        type: prometheus
-        url: http://jx-prom-server
-        access: proxy
-        isDefault: true
-  dashboardProviders:
-    dashboardproviders.yaml:
-      apiVersion: 1
-      providers:
-      - name: 'Default'
-        orgId: 1
-        folder: 'default'
-        type: file
-        disableDeletion: true
-        editable: true
-        options:
-          path: /var/lib/grafana/dashboards/default
-  dashboards:
-    default:
-      Jenkins-OLD:
-        gnetId: 9964
-        revision: 1
-        datasource: Prometheus
-      Costs-Pod:
-        gnetId: 6879
-        revision: 1
-        datasource: Prometheus
-      Costs:
-        gnetId: 8670
-        revision: 1
-        datasource: Prometheus
-      Summary:
-        gnetId: 8685
-        revision: 1
-        datasource: Prometheus
-      Capacity:
-        gnetId: 5228
-        revision: 6
-        datasource: Prometheus
-      Deployments:
-        gnetId: 8588
-        revision: 1
-        datasource: Prometheus
-      Volumes:
-        gnetId: 6739
-        revision: 1
-        datasource: Prometheus
-
-
+      - keycloak.staging.jx-aks.kearos.net
+      tls:
+      - hosts:
+        - keycloak.staging.jx-aks.kearos.net
+        secretName: tls-staging-jx-aks-kearos-net-p
 prom:
-  server:
-    ingress:
-      enabled: false
-    resources:
-      limits:
-        cpu: 100m
-        memory: 1000Mi
-      requests:
-        cpu: 10m
-        memory: 500Mi
   alertmanager:
     ingress:
       enabled: false
@@ -140,6 +139,24 @@ prom:
       requests:
         cpu: 5m
         memory: 10Mi
+  alertmanagerFiles:
+    alertmanager.yml:
+      global: {}
+      receivers:
+      - name: default
+        slack_configs:
+        - api_url: https://hooks.slack.com/services/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
+          channel: '#notify'
+          send_resolved: true
+          text: '{{ .CommonAnnotations.description }} {{ .CommonLabels.app_kubernetes_io_instance}} '
+          title: '{{ .CommonAnnotations.summary }} '
+          title_link: http://my-prometheus.com/alerts
+          username: Alertmanager
+      route:
+        group_by:
+        - alertname
+        - app_kubernetes_io_instance
+        receiver: default
   kubeStateMetrics:
     resources:
       limits:
@@ -164,165 +181,174 @@ prom:
       requests:
         cpu: 5m
         memory: 10Mi
+  server:
+    ingress:
+      enabled: false
+    resources:
+      limits:
+        cpu: 100m
+        memory: 1000Mi
+      requests:
+        cpu: 10m
+        memory: 500Mi
   serverFiles:
     alerts:
       groups:
       - name: jobs
         rules:
         - alert: JenkinsTooManyJobsQueued
+          annotations:
+            description: '{{ $labels.app_kubernetes_io_instance }} has {{ $value }}
+              jobs stuck in the queue'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} too many jobs queued'
           expr: sum(jenkins_queue_size_value) > 5
           for: 1m
           labels:
             severity: notify
-          annotations:
-            summary: " {{ $labels.app_kubernetes_io_instance }} too many jobs queued"
-            description: "{{ $labels.app_kubernetes_io_instance }} has {{ $value }} jobs stuck in the queue"
         - alert: JenkinsTooManyJobsStuckInQueue
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} has {{ $value
+              }} jobs in queue'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} too many jobs queued'
           expr: sum(jenkins_queue_stuck_value) by (app_kubernetes_io_instance) > 5
           for: 1m
           labels:
             severity: notify
-          annotations:
-            summary: " {{ $labels.app_kubernetes_io_instance }} too many jobs queued"
-            description: " {{ $labels.app_kubernetes_io_instance }} has {{ $value }} jobs in queue"
         - alert: JenkinsWaitingTooMuchOnJobStart
-          expr: sum (jenkins_job_waiting_duration) by (app_kubernetes_io_instance) > 0.05
+          annotations:
+            description: '{{ $labels.app_kubernetes_io_instance }} is waiting on average
+              {{ $value }} seconds to start a job'
+            summary: '{{ $labels.app_kubernetes_io_instance }} waits too long for
+              jobs'
+          expr: sum (jenkins_job_waiting_duration) by (app_kubernetes_io_instance)
+            > 0.05
           for: 1m
           labels:
             severity: notify
-          annotations:
-            summary: "{{ $labels.app_kubernetes_io_instance }} waits too long for jobs"
-            description: "{{ $labels.app_kubernetes_io_instance }} is waiting on average {{ $value }} seconds to start a job"
         - alert: JenkinsTooLowJobSuccessRate
-          expr: sum(jenkins_runs_success_total) by (app_kubernetes_io_instance) / sum(jenkins_runs_total_total) by (app_kubernetes_io_instance) < 0.60
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} instance has {{
+              $value }}% of jobs being successful'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} has a too low job
+              success rate'
+          expr: sum(jenkins_runs_success_total) by (app_kubernetes_io_instance) /
+            sum(jenkins_runs_total_total) by (app_kubernetes_io_instance) < 0.60
           for: 1m
           labels:
             severity: notify
-          annotations:
-            summary: " {{ $labels.app_kubernetes_io_instance }} has a too low job success rate"
-            description: " {{ $labels.app_kubernetes_io_instance }} instance has {{ $value }}% of jobs being successful"
       - name: uptime
         rules:
         - alert: JenkinsNewOrRestarted
-          expr: sum(vm_uptime_milliseconds) by (app_kubernetes_io_instance) / 3600000 < 2
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} has low uptime
+              and was either restarted or is a new instance (uptime: {{ $value }}
+              hours)'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} has low uptime'
+          expr: sum(vm_uptime_milliseconds) by (app_kubernetes_io_instance) / 3600000
+            < 2
           for: 3m
           labels:
             severity: notify
-          annotations:
-            summary: " {{ $labels.app_kubernetes_io_instance }} has low uptime"
-            description: " {{ $labels.app_kubernetes_io_instance }} has low uptime and was either restarted or is a new instance (uptime: {{ $value }} hours)"
       - name: plugins
         rules:
         - alert: JenkinsTooManyPluginsNeedUpate
-          expr: sum(jenkins_plugins_withUpdate) by (app_kubernetes_io_instance) > 3
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} has {{ $value
+              }} plugins that require an update'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} too many plugins updates'
+          expr: sum(jenkins_plugins_withUpdate) by (app_kubernetes_io_instance) >
+            3
           for: 1m
           labels:
             severity: notify
-          annotations:
-            summary: " {{ $labels.app_kubernetes_io_instance }} too many plugins updates"
-            description: " {{ $labels.app_kubernetes_io_instance }} has {{ $value }} plugins that require an update"
       - name: jvm
         rules:
         - alert: JenkinsToManyOpenFiles
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} instance has used
+              {{ $value }} of available open files'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} has a to many open
+              files'
           expr: sum(vm_file_descriptor_ratio) by (app_kubernetes_io_instance) > 0.040
           for: 5m
           labels:
             severity: notify
-          annotations:
-            summary: " {{ $labels.app_kubernetes_io_instance }} has a to many open files"
-            description: " {{ $labels.app_kubernetes_io_instance }} instance has used {{ $value }} of available open files"
         - alert: JenkinsVMMemoryRationTooHigh
+          annotations:
+            description: '{{$labels.app_kubernetes_io_instance}} has a too high VM
+              memory ration'
+            summary: '{{$labels.app_kubernetes_io_instance}} too high memory ration'
           expr: sum(vm_memory_heap_usage) by (app_kubernetes_io_instance) > 0.70
           for: 3m
           labels:
             severity: notify
-          annotations:
-            summary: "{{$labels.app_kubernetes_io_instance}} too high memory ration"
-            description: "{{$labels.app_kubernetes_io_instance}} has a too high VM memory ration"
         - alert: JenkinsTooManyPluginsNeedUpate
-          expr: 1 - sum(vm_gc_G1_Young_Generation_time)by (app_kubernetes_io_instance)  /  sum (vm_uptime_milliseconds) by (app_kubernetes_io_instance) < 0.99
+          annotations:
+            description: '{{ $labels.instance }} has too low Garbage Collection throughput'
+            summary: '{{ $labels.instance }} too low GC throughput'
+          expr: 1 - sum(vm_gc_G1_Young_Generation_time)by (app_kubernetes_io_instance)  /  sum
+            (vm_uptime_milliseconds) by (app_kubernetes_io_instance) < 0.99
           for: 30m
           labels:
             severity: notify
-          annotations:
-            summary: "{{ $labels.instance }} too low GC throughput"
-            description: "{{ $labels.instance }} has too low Garbage Collection throughput"
       - name: web
         rules:
         - alert: JenkinsTooSlow
-          expr: sum(http_requests{quantile="0.99"} ) by (app_kubernetes_io_instance) > 1
+          annotations:
+            description: '{{ $labels.app_kubernetes_io_instance }}  More then 1% of
+              requests are slower than 1s (request time: {{ $value }})'
+            summary: '{{ $labels.app_kubernetes_io_instance }} is too slow'
+          expr: sum(http_requests{quantile="0.99"} ) by (app_kubernetes_io_instance)
+            > 1
           for: 3m
           labels:
             severity: notify
-          annotations:
-            summary: "{{ $labels.app_kubernetes_io_instance }} is too slow"
-            description: "{{ $labels.app_kubernetes_io_instance }}  More then 1% of requests are slower than 1s (request time: {{ $value }})"
         - alert: AppTooSlow
-          expr: sum(rate(nginx_ingress_controller_request_duration_seconds_bucket{le="0.25"}[5m])) by (ingress) / sum(rate(nginx_ingress_controller_request_duration_seconds_count[5m])) by (ingress) < 0.95
+          annotations:
+            description: ' {{ $labels.ingress }} - More then 5% of requests are slower
+              than 0.25s'
+            summary: Application - {{ $labels.ingress }} - is too slow
+          expr: sum(rate(nginx_ingress_controller_request_duration_seconds_bucket{le="0.25"}[5m]))
+            by (ingress) / sum(rate(nginx_ingress_controller_request_duration_seconds_count[5m]))
+            by (ingress) < 0.95
           for: 5m
           labels:
             severity: notify
-          annotations:
-            summary: "Application - {{ $labels.ingress }} - is too slow"
-            description: " {{ $labels.ingress }} - More then 5% of requests are slower than 0.25s"
       - name: healthcheck
         rules:
         - alert: JenkinsHealthScoreToLow
-          expr: sum(jenkins_health_check_score) by (app_kubernetes_io_instance) < 1
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} a health score
+              lower than 100%'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} has a to low health
+              score'
+          expr: sum(jenkins_health_check_score) by (app_kubernetes_io_instance) <
+            1
           for: 5m
           labels:
             severity: notify
-          annotations:
-            summary: " {{ $labels.app_kubernetes_io_instance }} has a to low health score"
-            description: " {{ $labels.app_kubernetes_io_instance }} a health score lower than 100%"
         - alert: JenkinsTooSlowHealthCheck
-          expr: sum(jenkins_health_check_duration{quantile="0.999"})
-            by (app_kubernetes_io_instance) > 0.001
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} is responding
+              too slow to the regular health check'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} responds too slow
+              to health check'
+          expr: sum(jenkins_health_check_duration{quantile="0.999"}) by (app_kubernetes_io_instance)
+            > 0.001
           for: 1m
           labels:
             severity: notify
-          annotations:
-            summary: " {{ $labels.app_kubernetes_io_instance }} responds too slow to health check"
-            description: " {{ $labels.app_kubernetes_io_instance }} is responding too slow to the regular health check"
       - name: nodes
         rules:
         - alert: JenkinsTooManyOfflineNodes
-          expr: sum(jenkins_node_offline_value) by (app_kubernetes_io_instance) > 3
+          annotations:
+            description: '{{ $labels.app_kubernetes_io_instance }} has {{ $value }}
+              nodes that are offline for some time (5 minutes)'
+            summary: '{{ $labels.app_kubernetes_io_instance }} has a too many offline
+              nodes'
+          expr: sum(jenkins_node_offline_value) by (app_kubernetes_io_instance) >
+            3
           for: 1m
           labels:
             severity: notify
-          annotations:
-            summary: "{{ $labels.app_kubernetes_io_instance }} has a too many offline nodes"
-            description: "{{ $labels.app_kubernetes_io_instance }} has {{ $value }} nodes that are offline for some time (5 minutes)"        
-  alertmanagerFiles:
-    alertmanager.yml:
-      global: {}
-      route:
-        group_by: [alertname, app_kubernetes_io_instance]
-        receiver: default
-      receivers:
-      - name: default
-        slack_configs:
-        - api_url: 'https://hooks.slack.com/services/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'
-          username: 'Alertmanager'
-          channel: '#notify'
-          send_resolved: true
-          title: "{{ .CommonAnnotations.summary }} " 
-          text: "{{ .CommonAnnotations.description }} {{ .CommonLabels.app_kubernetes_io_instance}} "
-          title_link: http://my-prometheus.com/alerts
-
-keycloak:
-  keycloak: 
-    image: 
-      tag: 7.0.0
-    ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: nginx
-        kubernetes.io/tls-acme: "true"
-      hosts:
-      - keycloak.staging.jx-aks.kearos.net
-      tls:
-      - secretName: tls-staging-jx-aks-kearos-net-p
-        hosts:
-          - keycloak.staging.jx-aks.kearos.net
+prow: {}
