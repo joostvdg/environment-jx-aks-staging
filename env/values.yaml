@@ -310,3 +310,8 @@ prom:
           title: "{{ .CommonAnnotations.summary }} " 
           text: "{{ .CommonAnnotations.description }} {{ .CommonLabels.app_kubernetes_io_instance}} "
           title_link: http://my-prometheus.com/alerts
+
+keycloak:
+  keycloak: 
+    image: 
+      tag: 7.0.0
