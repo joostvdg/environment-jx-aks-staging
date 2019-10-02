@@ -1,38 +1,61 @@
 
-Showing logs for build [32mjoostvdg-environment-jx-aks-sta-lcrz4-3[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-p5xmt[0m
-{"level":"warn","ts":1569327761.1996503,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1569327761.2001693,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-b8lnw-3[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-qx72p[0m
+{"level":"warn","ts":1570055588.5426192,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1570055588.5464275,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
 
-Showing logs for build [32mjoostvdg-environment-jx-aks-sta-lcrz4-3[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-rf4mc[0m
-{"level":"warn","ts":1569327764.2871516,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1569327764.289662,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source /workspace/source/env\""}
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-b8lnw-3[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-4zt6q[0m
+{"level":"warn","ts":1570055660.0557919,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1570055660.0900767,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source /workspace/source/env\""}
 
-Showing logs for build [32mjoostvdg-environment-jx-aks-sta-lcrz4-3[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-b8lnw-3[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
 
-Showing logs for build [32mjoostvdg-environment-jx-aks-sta-lcrz4-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-joostvdg-environment-jx-aks-sta-l287g[0m
-{"level":"warn","ts":1569327775.9699717,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1569327777.067481,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/********/environment-**-aks-staging.git @ v0.0.3 in path /workspace/source"}
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-b8lnw-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-joostvdg-environment-jx-aks-sta-gmw5f[0m
+{"level":"warn","ts":1570055803.947613,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1570055805.2447126,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/********/environment-**-aks-staging.git @ v0.0.20 in path /workspace/source"}
 
-Showing logs for build [32mjoostvdg-environment-jx-aks-sta-lcrz4-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:9d32131d82c24a5efeee8179c0732b2be96a14dd
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-b8lnw-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:e3edee6f3fb14d0602b1d71ff8d3539d36646f28
 WARNING: no SHAs to merge, falling back to initial cloned commit
 
-Showing logs for build [32mjoostvdg-environment-jx-aks-sta-lcrz4-3[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-b8lnw-3[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
 Generated Git credentials file /builder/home/git/credentials
 
-Showing logs for build [32mjoostvdg-environment-jx-aks-sta-lcrz4-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-apply[0m
+Showing logs for build [32mjoostvdg-environment-jx-aks-sta-b8lnw-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-apply[0m
 Modified file /workspace/source/env/Chart.yaml to set the chart to version 3
-Copying the helm source directory /workspace/source/env to a temporary location for building and applying /tmp/**-helm-apply-302785719/env
-Applying helm chart at /tmp/**-helm-apply-302785719/env as release name ** to namespace **-staging
+Copying the helm source directory /workspace/source/env to a temporary location for building and applying /tmp/**-helm-apply-237847655/env
+Applying helm chart at /tmp/**-helm-apply-237847655/env as release name ** to namespace **-staging
 verifying the helm requirements versions in dir: . using version stream URL:  and git ref: 
 Deleting and cloning the Jenkins X versions repo
 Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
 Ignoring templates/.gitignore
-Wrote chart values.yaml /tmp/**-helm-apply-302785719/env/values.yaml generated from directory tree
-generated helm /tmp/**-helm-apply-302785719/env/values.yaml
+Ignoring templates/certificate.yaml
+Ignoring templates/issuer.yaml
+Wrote chart values.yaml /tmp/**-helm-apply-237847655/env/values.yaml generated from directory tree
+generated helm /tmp/**-helm-apply-237847655/env/values.yaml
 
 PipelineSecrets:
   DockerConfig: '{"auths":{"acctestaks1.azurecr.io":{"auth":"YWNjdGVzdGFrczE6MzVab00rWURreVk1SGpyalBOM3Y0U0t1cEIxVTVETDI="}}}'
+cbcore:
+  OperationsCenter:
+    CSRF:
+      ProxyCompatibility: true
+    HostName: cbcore.staging.**-aks.kearos.net
+    Image:
+      dockerImage: cloudbees/cloudbees-cloud-core-oc:2.176.3.3
+    Ingress:
+      Annotations:
+        kubernetes.io/ingress.class: nginx
+        kubernetes.io/tls-acme: "true"
+        nginx.ingress.kubernetes.io/proxy-body-size: 60m
+        nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      tls:
+        Enable: true
+        Host: cbcore.staging.**-aks.kearos.net
+        SecretName: tls-staging-**-aks-kearos-net-p
+    ServiceType: ClusterIP
+  nginx-ingress:
+    Enabled: false
 cleanup:
   Annotations:
     helm.sh/hook: pre-delete
@@ -57,19 +80,315 @@ expose:
     http: "false"
     tlsacme: "true"
 grafana:
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+      - disableDeletion: true
+        editable: true
+        folder: default
+        name: Default
+        options:
+          path: /var/lib/grafana/dashboards/default
+        orgId: 1
+        type: file
+  dashboards:
+    default:
+      Capacity:
+        datasource: Prometheus
+        gnetId: 5228
+        revision: 6
+      Costs:
+        datasource: Prometheus
+        gnetId: 8670
+        revision: 1
+      Costs-Pod:
+        datasource: Prometheus
+        gnetId: 6879
+        revision: 1
+      Deployments:
+        datasource: Prometheus
+        gnetId: 8588
+        revision: 1
+      Jenkins-OLD:
+        datasource: Prometheus
+        gnetId: 9964
+        revision: 1
+      Summary:
+        datasource: Prometheus
+        gnetId: 8685
+        revision: 1
+      Volumes:
+        datasource: Prometheus
+        gnetId: 6739
+        revision: 1
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+      - access: proxy
+        isDefault: true
+        name: Prometheus
+        type: prometheus
+        url: http://**-prom-server
   ingress:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      kubernetes.io/tls-acme: "true"
     enabled: true
     hosts:
     - grafana.staging.**-aks.kearos.net
+    tls:
+    - hosts:
+      - grafana.staging.**-aks.kearos.net
+      secretName: tls-staging-**-aks-kearos-net-p
 jenkins:
   Servers:
     Global:
       EnvVars:
         TILLER_NAMESPACE: kube-system
   enabled: false
+keycloak:
+  keycloak:
+    image:
+      tag: 7.0.0
+    ingress:
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        kubernetes.io/tls-acme: "true"
+      enabled: true
+      hosts:
+      - keycloak.staging.**-aks.kearos.net
+      tls:
+      - hosts:
+        - keycloak.staging.**-aks.kearos.net
+        secretName: tls-staging-**-aks-kearos-net-p
+prom:
+  alertmanager:
+    ingress:
+      enabled: false
+    resources:
+      limits:
+        cpu: 10m
+        memory: 20Mi
+      requests:
+        cpu: 5m
+        memory: 10Mi
+  alertmanagerFiles:
+    alertmanager.yml:
+      global: {}
+      receivers:
+      - name: default
+        slack_configs:
+        - api_url: https://hooks.slack.com/services/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
+          channel: '#notify'
+          send_resolved: true
+          text: '{{ .CommonAnnotations.description }} {{ .CommonLabels.app_kubernetes_io_instance}} '
+          title: '{{ .CommonAnnotations.summary }} '
+          title_link: http://my-prometheus.com/alerts
+          username: Alertmanager
+      route:
+        group_by:
+        - alertname
+        - app_kubernetes_io_instance
+        receiver: default
+  kubeStateMetrics:
+    resources:
+      limits:
+        cpu: 10m
+        memory: 50Mi
+      requests:
+        cpu: 5m
+        memory: 25Mi
+  nodeExporter:
+    resources:
+      limits:
+        cpu: 10m
+        memory: 20Mi
+      requests:
+        cpu: 5m
+        memory: 10Mi
+  pushgateway:
+    resources:
+      limits:
+        cpu: 10m
+        memory: 20Mi
+      requests:
+        cpu: 5m
+        memory: 10Mi
+  server:
+    ingress:
+      enabled: false
+    resources:
+      limits:
+        cpu: 100m
+        memory: 1000Mi
+      requests:
+        cpu: 10m
+        memory: 500Mi
+  serverFiles:
+    alerts:
+      groups:
+      - name: jobs
+        rules:
+        - alert: JenkinsTooManyJobsQueued
+          annotations:
+            description: '{{ $labels.app_kubernetes_io_instance }} has {{ $value }}
+              jobs stuck in the queue'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} too many jobs queued'
+          expr: sum(jenkins_queue_size_value) > 5
+          for: 1m
+          labels:
+            severity: notify
+        - alert: JenkinsTooManyJobsStuckInQueue
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} has {{ $value
+              }} jobs in queue'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} too many jobs queued'
+          expr: sum(jenkins_queue_stuck_value) by (app_kubernetes_io_instance) > 5
+          for: 1m
+          labels:
+            severity: notify
+        - alert: JenkinsWaitingTooMuchOnJobStart
+          annotations:
+            description: '{{ $labels.app_kubernetes_io_instance }} is waiting on average
+              {{ $value }} seconds to start a job'
+            summary: '{{ $labels.app_kubernetes_io_instance }} waits too long for
+              jobs'
+          expr: sum (jenkins_job_waiting_duration) by (app_kubernetes_io_instance)
+            > 0.05
+          for: 1m
+          labels:
+            severity: notify
+        - alert: JenkinsTooLowJobSuccessRate
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} instance has {{
+              $value }}% of jobs being successful'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} has a too low job
+              success rate'
+          expr: sum(jenkins_runs_success_total) by (app_kubernetes_io_instance) /
+            sum(jenkins_runs_total_total) by (app_kubernetes_io_instance) < 0.60
+          for: 1m
+          labels:
+            severity: notify
+      - name: uptime
+        rules:
+        - alert: JenkinsNewOrRestarted
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} has low uptime
+              and was either restarted or is a new instance (uptime: {{ $value }}
+              hours)'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} has low uptime'
+          expr: sum(vm_uptime_milliseconds) by (app_kubernetes_io_instance) / 3600000
+            < 2
+          for: 3m
+          labels:
+            severity: notify
+      - name: plugins
+        rules:
+        - alert: JenkinsTooManyPluginsNeedUpate
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} has {{ $value
+              }} plugins that require an update'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} too many plugins updates'
+          expr: sum(jenkins_plugins_withUpdate) by (app_kubernetes_io_instance) >
+            3
+          for: 1m
+          labels:
+            severity: notify
+      - name: jvm
+        rules:
+        - alert: JenkinsToManyOpenFiles
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} instance has used
+              {{ $value }} of available open files'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} has a to many open
+              files'
+          expr: sum(vm_file_descriptor_ratio) by (app_kubernetes_io_instance) > 0.040
+          for: 5m
+          labels:
+            severity: notify
+        - alert: JenkinsVMMemoryRationTooHigh
+          annotations:
+            description: '{{$labels.app_kubernetes_io_instance}} has a too high VM
+              memory ration'
+            summary: '{{$labels.app_kubernetes_io_instance}} too high memory ration'
+          expr: sum(vm_memory_heap_usage) by (app_kubernetes_io_instance) > 0.70
+          for: 3m
+          labels:
+            severity: notify
+        - alert: JenkinsTooManyPluginsNeedUpate
+          annotations:
+            description: '{{ $labels.instance }} has too low Garbage Collection throughput'
+            summary: '{{ $labels.instance }} too low GC throughput'
+          expr: 1 - sum(vm_gc_G1_Young_Generation_time)by (app_kubernetes_io_instance)  /  sum
+            (vm_uptime_milliseconds) by (app_kubernetes_io_instance) < 0.99
+          for: 30m
+          labels:
+            severity: notify
+      - name: web
+        rules:
+        - alert: JenkinsTooSlow
+          annotations:
+            description: '{{ $labels.app_kubernetes_io_instance }}  More then 1% of
+              requests are slower than 1s (request time: {{ $value }})'
+            summary: '{{ $labels.app_kubernetes_io_instance }} is too slow'
+          expr: sum(http_requests{quantile="0.99"} ) by (app_kubernetes_io_instance)
+            > 1
+          for: 3m
+          labels:
+            severity: notify
+        - alert: AppTooSlow
+          annotations:
+            description: ' {{ $labels.ingress }} - More then 5% of requests are slower
+              than 0.25s'
+            summary: Application - {{ $labels.ingress }} - is too slow
+          expr: sum(rate(nginx_ingress_controller_request_duration_seconds_bucket{le="0.25"}[5m]))
+            by (ingress) / sum(rate(nginx_ingress_controller_request_duration_seconds_count[5m]))
+            by (ingress) < 0.95
+          for: 5m
+          labels:
+            severity: notify
+      - name: healthcheck
+        rules:
+        - alert: JenkinsHealthScoreToLow
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} a health score
+              lower than 100%'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} has a to low health
+              score'
+          expr: sum(jenkins_health_check_score) by (app_kubernetes_io_instance) <
+            1
+          for: 5m
+          labels:
+            severity: notify
+        - alert: JenkinsTooSlowHealthCheck
+          annotations:
+            description: ' {{ $labels.app_kubernetes_io_instance }} is responding
+              too slow to the regular health check'
+            summary: ' {{ $labels.app_kubernetes_io_instance }} responds too slow
+              to health check'
+          expr: sum(jenkins_health_check_duration{quantile="0.999"}) by (app_kubernetes_io_instance)
+            > 0.001
+          for: 1m
+          labels:
+            severity: notify
+      - name: nodes
+        rules:
+        - alert: JenkinsTooManyOfflineNodes
+          annotations:
+            description: '{{ $labels.app_kubernetes_io_instance }} has {{ $value }}
+              nodes that are offline for some time (5 minutes)'
+            summary: '{{ $labels.app_kubernetes_io_instance }} has a too many offline
+              nodes'
+          expr: sum(jenkins_node_offline_value) by (app_kubernetes_io_instance) >
+            3
+          for: 1m
+          labels:
+            severity: notify
 prow: {}
 
-Using values files: /tmp/**-helm-apply-302785719/env/values.yaml
+Using values files: /tmp/**-helm-apply-237847655/env/values.yaml
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
 Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
 Successfully added Helm repository storage.googleapis.com.
@@ -80,7 +399,104 @@ Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.
 Successfully added Helm repository chartmuseum.jenkins-x.io.
 Adding missing Helm repo: raw.githubusercontent.com https://raw.githubusercontent.com/********/helm-repo/master/
 Successfully added Helm repository raw.githubusercontent.com.
+Adding missing Helm repo: charts.cloudbees.com https://charts.cloudbees.com/public/cloudbees
+Successfully added Helm repository charts.cloudbees.com.
+Adding missing Helm repo: codecentric.github.io https://codecentric.github.io/helm-charts
+Successfully added Helm repository codecentric.github.io.
 Applying Apps chart overrides
 Applying chart overrides
+error: upgrading helm chart '.': failed to run 'kubectl apply --recursive -f /tmp/helm-template-workdir-091427178/**/output/namespaces/**-staging -l jenkins.io/chart-release=** --namespace **-staging --wait --validate=false' command in directory '/tmp/**-helm-apply-237847655/env', output: 'configmap/jenkins-agent configured
+clusterrole.rbac.authorization.k8s.io/cjoc-master-management-**-staging configured
+clusterrolebinding.rbac.authorization.k8s.io/cjoc-role-binding-**-staging configured
+configmap/cjoc-configure-jenkins-groovy configured
+ingress.extensions/cjoc configured
+role.rbac.authorization.k8s.io/cjoc-master-management configured
+rolebinding.rbac.authorization.k8s.io/cjoc-role-binding configured
+serviceaccount/cjoc configured
+warning: error calculating patch from openapi spec: map: map[value:-Djenkins.model.Jenkins.crumbIssuerProxyCompatibility=true] does not contain declared merge key: name
+service/cjoc configured
+role.rbac.authorization.k8s.io/cjoc-agents configured
+rolebinding.rbac.authorization.k8s.io/cjoc-master-role-binding configured
+serviceaccount/jenkins configured
+role.rbac.authorization.k8s.io/cleanup configured
+rolebinding.rbac.authorization.k8s.io/cleanup configured
+serviceaccount/cleanup configured
+configmap/exposecontroller configured
+role.rbac.authorization.k8s.io/expose configured
+rolebinding.rbac.authorization.k8s.io/expose configured
+serviceaccount/expose configured
+clusterrole.rbac.authorization.k8s.io/**-grafana-clusterrole configured
+clusterrolebinding.rbac.authorization.k8s.io/**-grafana-clusterrolebinding configured
+configmap/**-grafana configured
+configmap/**-grafana-dashboards-default configured
+deployment.apps/**-grafana configured
+ingress.extensions/**-grafana configured
+podsecuritypolicy.extensions/**-grafana configured
+role.rbac.authorization.k8s.io/**-grafana configured
+rolebinding.rbac.authorization.k8s.io/**-grafana configured
+secret/**-grafana configured
+service/**-grafana configured
+serviceaccount/**-grafana configured
+configmap/**-grafana-test configured
+podsecuritypolicy.extensions/**-grafana-test configured
+role.rbac.authorization.k8s.io/**-grafana-test configured
+rolebinding.rbac.authorization.k8s.io/**-grafana-test configured
+serviceaccount/**-grafana-test configured
+configmap/**-keycloak-sh configured
+configmap/**-keycloak-startup configured
+ingress.extensions/**-keycloak configured
+secret/**-keycloak-db configured
+secret/**-keycloak-http configured
+service/**-keycloak-headless configured
+service/**-keycloak-http configured
+statefulset.apps/**-keycloak configured
+configmap/**-keycloak-test configured
+deployment.apps/**-ldap configured
+service/**-ldap configured
+configmap/**-prom-alertmanager configured
+deployment.extensions/**-prom-alertmanager configured
+persistentvolumeclaim/**-prom-alertmanager configured
+service/**-prom-alertmanager configured
+serviceaccount/**-prom-alertmanager configured
+clusterrole.rbac.authorization.k8s.io/**-prom-kube-state-metrics configured
+clusterrolebinding.rbac.authorization.k8s.io/**-prom-kube-state-metrics configured
+deployment.extensions/**-prom-kube-state-metrics configured
+serviceaccount/**-prom-kube-state-metrics configured
+service/**-prom-kube-state-metrics configured
+daemonset.extensions/**-prom-node-exporter configured
+service/**-prom-node-exporter configured
+serviceaccount/**-prom-node-exporter configured
+deployment.extensions/**-prom-pushgateway configured
+service/**-prom-pushgateway configured
+serviceaccount/**-prom-pushgateway configured
+clusterrole.rbac.authorization.k8s.io/**-prom-server configured
+clusterrolebinding.rbac.authorization.k8s.io/**-prom-server configured
+configmap/**-prom-server configured
+deployment.extensions/**-prom-server configured
+persistentvolumeclaim/**-prom-server configured
+service/**-prom-server configured
+serviceaccount/**-prom-server configured
+certificate.certmanager.k8s.io/tls-staging-**-aks-kearos-net-p configured
+issuer.certmanager.k8s.io/letsencrypt-prod configured
+error: error when applying patch:
 
+to:
+Resource: "apps/v1, Resource=statefulsets", GroupVersionKind: "apps/v1, Kind=StatefulSet"
+Name: "cjoc", Namespace: "**-staging"
+Object: &{map["apiVersion":"apps/v1" "kind":"StatefulSet" "metadata":map["annotations":map["jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":"{\"apiVersion\":\"apps/v1\",\"kind\":\"StatefulSet\",\"metadata\":{\"annotations\":{\"jenkins.io/chart\":\"env\"},\"labels\":{\"com.cloudbees.cje.tenant\":\"cjoc\",\"com.cloudbees.cje.type\":\"cjoc\",\"component\":\"**-cjoc\",\"heritage\":\"Tiller\",\"jenkins.io/chart-release\":\"**\",\"jenkins.io/namespace\":\"**-staging\",\"jenkins.io/version\":\"1\",\"release\":\"**\"},\"name\":\"cjoc\",\"namespace\":\"**-staging\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"com.cloudbees.cje.tenant\":\"cjoc\",\"com.cloudbees.cje.type\":\"cjoc\"}},\"serviceName\":\"cjoc\",\"template\":{\"metadata\":{\"labels\":{\"app\":\"cjoc\",\"com.cloudbees.cje.tenant\":\"cjoc\",\"com.cloudbees.cje.type\":\"cjoc\",\"component\":\"**-jenkins-master\",\"heritage\":\"Tiller\",\"release\":\"**\"},\"name\":\"cjoc\"},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"ENVIRONMENT\",\"value\":\"KUBERNETES\"},{\"name\":\"JENKINS_OPTS\",\"value\":\"--prefix=/cjoc \"},{\"name\":\"JAVA_OPTS\",\"value\":\"-XshowSettings:vm -XX:MaxRAMFraction=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:+PrintGCDetails -Dcb.IMProp.warProfiles.cje=kubernetes.json -Dcom.cloudbees.opscenter.analytics.reporter.JocAnalyticsReporter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.reporter.metrics.AperiodicMetricSubmitter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.FeederConfiguration.PERIOD=120 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.fsGroup=1000 -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.disableAutoConfiguration=true -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImageName=\\\"CloudBees Core - Managed Master - 2.176.2.3\\\" -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImage=cloudbees/cloudbees-core-mm:2.176.2.3 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.serviceAccount=jenkins\"}],\"image\":\"cloudbees/cloudbees-cloud-core-oc:2.176.2.3\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"failureThreshold\":12,\"httpGet\":{\"path\":\"/cjoc/login\",\"port\":8080},\"initialDelaySeconds\":300,\"timeoutSeconds\":5},\"name\":\"jenkins\",\"ports\":[{\"containerPort\":8080,\"name\":\"http\"},{\"containerPort\":50000}],\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"1G\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"1G\"}},\"volumeMounts\":[{\"mountPath\":\"/var/jenkins_home\",\"name\":\"jenkins-home\",\"readOnly\":false},{\"mountPath\":\"/var/jenkins_config/configure-jenkins.groovy.d\",\"name\":\"jenkins-configure-jenkins-groovy\",\"readOnly\":true}]}],\"securityContext\":{\"fsGroup\":1000,\"runAsUser\":1000},\"serviceAccountName\":\"cjoc\",\"terminationGracePeriodSeconds\":10,\"volumes\":[{\"configMap\":{\"name\":\"cjoc-configure-jenkins-groovy\"},\"name\":\"jenkins-configure-jenkins-groovy\"}]}},\"updateStrategy\":{\"type\":\"RollingUpdate\"},\"volumeClaimTemplates\":[{\"metadata\":{\"labels\":{\"app\":\"cjoc\",\"heritage\":\"Tiller\",\"release\":\"**\"},\"name\":\"jenkins-home\"},\"spec\":{\"accessModes\":[\"ReadWriteOnce\"],\"resources\":{\"requests\":{\"storage\":\"20Gi\"}}}}]}}\n"] "creationTimestamp":"2019-09-24T12:50:00Z" "generation":'\x01' "labels":map["com.cloudbees.cje.tenant":"cjoc" "com.cloudbees.cje.type":"cjoc" "component":"**-cjoc" "heritage":"Tiller" "jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-staging" "jenkins.io/version":"1" "release":"**"] "name":"cjoc" "namespace":"**-staging" "resourceVersion":"1614235" "selfLink":"/apis/apps/v1/namespaces/**-staging/statefulsets/cjoc" "uid":"d213386a-dec9-11e9-b6fa-f602efc27c36"] "spec":map["podManagementPolicy":"OrderedReady" "replicas":'\x01' "revisionHistoryLimit":'\n' "selector":map["matchLabels":map["com.cloudbees.cje.tenant":"cjoc" "com.cloudbees.cje.type":"cjoc"]] "serviceName":"cjoc" "template
+":map["metadata":map["creationTimestamp":<nil> "labels":map["app":"cjoc" "com.cloudbees.cje.tenant":"cjoc" "com.cloudbees.cje.type":"cjoc" "component":"**-jenkins-master" "heritage":"Tiller" "release":"**"] "name":"cjoc"] "spec":map["containers":[map["env":[map["name":"ENVIRONMENT" "value":"KUBERNETES"] map["name":"JENKINS_OPTS" "value":"--prefix=/cjoc "] map["name":"JAVA_OPTS" "value":"-XshowSettings:vm -XX:MaxRAMFraction=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:+PrintGCDetails -Dcb.IMProp.warProfiles.cje=kubernetes.json -Dcom.cloudbees.opscenter.analytics.reporter.JocAnalyticsReporter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.reporter.metrics.AperiodicMetricSubmitter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.FeederConfiguration.PERIOD=120 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.fsGroup=1000 -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.disableAutoConfiguration=true -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImageName=\"CloudBees Core - Managed Master - 2.176.2.3\" -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImage=cloudbees/cloudbees-core-mm:2.176.2.3 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.serviceAccount=jenkins"]] "image":"cloudbees/cloudbees-cloud-core-oc:2.176.2.3" "imagePullPolicy":"Always" "livenessProbe":map["failureThreshold":'\f' "httpGet":map["path":"/cjoc/login" "port":'\u1f90' "scheme":"HTTP"] "initialDelaySeconds":'\u012c' "periodSeconds":'\n' "successThreshold":'\x01' "timeoutSeconds":'\x05'] "name":"jenkins" "ports":[map["containerPort":'\u1f90' "name":"http" "protocol":"TCP"] map["containerPort":'\uc350' "protocol":"TCP"]] "resources":map["limits":map["cpu":"1" "memory":"1G"] "requests":map["cpu":"1" "memory":"1G"]] "terminationMessagePath":"/dev/termination-log" "terminationMessagePolicy":"File" "volumeMounts":[map["mountPath":"/var/jenkins_home" "name":"jenkins-home"] map["mountPath":"/var/jenkins_config/configure-jenkins.groovy.d" "name":"jenkins-configure-jenkins-groovy" "readOnly":%!q(bool=true)]]]] "dnsPolicy":"ClusterFirst" "restartPolicy":"Always" "schedulerName":"default-scheduler" "securityContext":map["fsGroup":'\u03e8' "runAsUser":'\u03e8'] "serviceAccount":"cjoc" "serviceAccountName":"cjoc" "terminationGracePeriodSeconds":'\n' "volumes":[map["configMap":map["defaultMode":'\u01a4' "name":"cjoc-configure-jenkins-groovy"] "name":"jenkins-configure-jenkins-groovy"]]]] "updateStrategy":map["type":"RollingUpdate"] "volumeClaimTemplates":[map["metadata":map["creationTimestamp":<nil> "labels":map["app":"cjoc" "heritage":"Tiller" "release":"**"] "name":"jenkins-home"] "spec":map["accessModes":["ReadWriteOnce"] "resources":map["requests":map["storage":"20Gi"]] "volumeMode":"Filesystem"] "status":map["phase":"Pending"]]]] "status":map["collisionCount":'\x00' "currentReplicas":'\x01' "currentRevision":"cjoc-7f574f7d8d" "observedGeneration":'\x01' "readyReplicas":'\x01' "replicas":'\x01' "updateRevision":"cjoc-7f574f7d8d" "updatedReplicas":'\x01']]}
+for: "/tmp/helm-template-workdir-091427178/**/output/namespaces/**-staging/env/charts/cbcore/templates/part0-cjoc-statefulset.yaml": error when creating patch with:
+original:
+{"apiVersion":"apps/v1","kind":"StatefulSet","metadata":{"annotations":{"jenkins.io/chart":"env"},"labels":{"com.cloudbees.cje.tenant":"cjoc","com.cloudbees.cje.type":"cjoc","component":"**-cjoc","heritage":"Tiller","jenkins.io/chart-release":"**","jenkins.io/namespace":"**-staging","jenkins.io/version":"1","release":"**"},"name":"cjoc","namespace":"**-staging"},"spec":{"replicas":1,"selector":{"matchLabels":{"com.cloudbees.cje.tenant":"cjoc","com.cloudbees.cje.type":"cjoc"}},"serviceName":"cjoc","template":{"metadata":{"labels":{"app":"cjoc","com.cloudbees.cje.tenant":"cjoc","com.cloudbees.cje.type":"cjoc","component":"**-jenkins-master","heritage":"Tiller","release":"**"},"name":"cjoc"},"spec":{"containers":[{"env":[{"name":"ENVIRONMENT","value":"KUBERNETES"},{"name":"JENKINS_OPTS","value":"--prefix=/cjoc "},{"name":"JAVA_OPTS","value":"-XshowSettings:vm -XX:MaxRAMFraction=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:+PrintGCDetails -Dcb.IMProp.warProfiles.cje=kubernetes.json -Dcom.cloudbees.opscenter.analytics.reporter.JocAnalyticsReporter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.reporter.metrics.AperiodicMetricSubmitter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.FeederConfiguration.PERIOD=120 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.fsGroup=1000 -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.disableAutoConfiguration=true -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImageName=\"CloudBees Core - Managed Master - 2.176.2.3\" -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImage=cloudbees/cloudbees-core-mm:2.176.2.3 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.serviceAccount=jenkins"}],"image":"cloudbees/cloudbees-cloud-core-oc:2.176.2.3","imagePullPolicy":"Always","livenessProbe":{"failureThreshold":12,"httpGet":{"path":"/cjoc/login","port":8080},"initialDelaySeconds":300,"timeoutSeconds":5},"name":"jenkins","ports":[{"containerPort":8080,"name":"http"},{"containerPort":50000}],"resources":{"limits":{"cpu":"1","memory":"1G"},"requests":{"cpu":"1","memory":"1G"}},"volumeMounts":[{"mountPath":"/var/jenkins_home","name":"jenkins-home","readOnly":false},{"mountPath":"/var/jenkins_config/configure-jenkins.groovy.d","name":"jenkins-configure-jenkins-groovy","readOnly":true}]}],"securityContext":{"fsGroup":1000,"runAsUser":1000},"serviceAccountName":"cjoc","terminationGracePeriodSeconds":10,"volumes":[{"configMap":{"name":"cjoc-configure-jenkins-groovy"},"name":"jenkins-configure-jenkins-groovy"}]}},"updateStrategy":{"type":"RollingUpdate"},"volumeClaimTemplates":[{"metadata":{"labels":{"app":"cjoc","heritage":"Tiller","release":"**"},"name":"jenkins-home"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"20Gi"}}}}]}}
 
+modified:
+{"apiVersion":"apps/v1","kind":"StatefulSet","metadata":{"annotations":{"jenkins.io/chart":"env","kubectl.kubernetes.io/last-applied-configuration":"{\"apiVersion\":\"apps/v1\",\"kind\":\"StatefulSet\",\"metadata\":{\"annotations\":{\"jenkins.io/chart\":\"env\"},\"labels\":{\"com.cloudbees.cje.tenant\":\"cjoc\",\"com.cloudbees.cje.type\":\"cjoc\",\"component\":\"**-cjoc\",\"heritage\":\"Tiller\",\"jenkins.io/chart-release\":\"**\",\"jenkins.io/namespace\":\"**-staging\",\"jenkins.io/version\":\"3\",\"release\":\"**\"},\"name\":\"cjoc\",\"namespace\":\"**-staging\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"com.cloudbees.cje.tenant\":\"cjoc\",\"com.cloudbees.cje.type\":\"cjoc\"}},\"serviceName\":\"cjoc\",\"template\":{\"metadata\":{\"labels\":{\"app\":\"cjoc\",\"com.cloudbees.cje.tenant\":\"cjoc\",\"com.cloudbees.cje.type\":\"cjoc\",\"component\":\"**-jenkins-master\",\"heritage\":\"Tiller\",\"release\":\"**\"},\"name\":\"cjoc\"},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"MASTER_GLOBAL_JAVA_OPTIONS\"},{\"value\":\"-Djenkins.model.Jenkins.crumbIssuerProxyCompatibility=true\"},{\"name\":\"ENVIRONMENT\",\"value\":\"KUBERNETES\"},{\"name\":\"JENKINS_OPTS\",\"value\":\"--prefix=/cjoc\"},{\"name\":\"JAVA_OPTS\",\"value\":\"-XshowSettings:vm -XX:MaxRAMFraction=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Dcb.IMProp.warProfiles.cje=kubernetes.json -Dcom.cloudbees.opscenter.analytics.reporter.JocAnalyticsReporter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.reporter.metrics.AperiodicMetricSubmitter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.FeederConfiguration.PERIOD=120 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.fsGroup=1000 -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.disableAutoConfiguration=true -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImageName=\\\"CloudBees Core - Managed Master - 2.176.4.3\\\" -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImage=cloudbees/cloudbees-core-mm:2.176.4.3 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.serviceAccount=jenkins-Djenkins.model.Jenkins.crumbIssuerProxyCompatibility=true\"}],\"image\":\"cloudbees/cloudbees-cloud-core-oc:2.176.3.3\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"failureThreshold\":12,\"httpGet\":{\"path\":\"/cjoc/login\",\"port\":8080},\"initialDelaySeconds\":300,\"timeoutSeconds\":5},\"name\":\"jenkins\",\"ports\":[{\"containerPort\":8080,\"name\":\"http\"},{\"containerPort\":50000}],\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"1G\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"1G\"}},\"volumeMounts\":[{\"mountPath\":\"/var/jenkins_home\",\"name\":\"jenkins-home\",\"readOnly\":false},{\"mountPath\":\"/var/jenkins_config/configure-jenkins.groovy.d\",\"name\":\"jenkins-configure-jenkins-groovy\",\"readOnly\":true}]}],\"securityContext\":{\"fsGroup\":1000,\"runAsUser\":1000},\"serviceAccountName\":\"cjoc\",\"terminationGracePeriodSeconds\":10,\"volumes\":[{\"configMap\":{\"name\":\"cjoc-configure-jenkins-groovy\"},\"name\":\"jenkins-configure-jenkins-groovy\"}]}},\"updateStrategy\":{\"type\":\"RollingUpdate\"},\"volumeClaimTemplates\":[{\"metadata\":{\"labels\":{\"app\":\"cjoc\",\"heritage\":\"Tiller\",\"release\":\"**\"},\"name\":\"jenkins-home\"},\"spec\":{\"accessModes\":[\"ReadWriteOnce\"],\"resources\":{\"requests\":{\"storage\":\"20Gi\"}}}}]}}\n"},"labels":{"com.cloudbees.cje.tenant":"cjoc","com.cloudbees.cje.type":"cjoc","component":"**-cjoc","heritage":"Tiller","jenkins.io/chart-release":"**","jenkins.io/namespace":"**-staging","jenkins.io/version":"3","release":"**"},"name":"cjoc","namespace":"**-staging"},"spec":{"replicas":1,"selector":{"matchLabels":{"com.cloudbees.cje.tenant":"cjoc","com.cloudbees.cje.type":"cjoc"}},"serviceName":"cjoc","template":{"metadata":{"labels":{"app":"cjoc","com.cloudbees.cje.tenant":"cjoc","com.cloudbees.cje.type":"cjoc","component":"**-jenkins-master","heritage":"Ti
+ller","release":"**"},"name":"cjoc"},"spec":{"containers":[{"env":[{"name":"MASTER_GLOBAL_JAVA_OPTIONS"},{"value":"-Djenkins.model.Jenkins.crumbIssuerProxyCompatibility=true"},{"name":"ENVIRONMENT","value":"KUBERNETES"},{"name":"JENKINS_OPTS","value":"--prefix=/cjoc"},{"name":"JAVA_OPTS","value":"-XshowSettings:vm -XX:MaxRAMFraction=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Dcb.IMProp.warProfiles.cje=kubernetes.json -Dcom.cloudbees.opscenter.analytics.reporter.JocAnalyticsReporter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.reporter.metrics.AperiodicMetricSubmitter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.FeederConfiguration.PERIOD=120 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.fsGroup=1000 -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.disableAutoConfiguration=true -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImageName=\"CloudBees Core - Managed Master - 2.176.4.3\" -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImage=cloudbees/cloudbees-core-mm:2.176.4.3 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.serviceAccount=jenkins-Djenkins.model.Jenkins.crumbIssuerProxyCompatibility=true"}],"image":"cloudbees/cloudbees-cloud-core-oc:2.176.3.3","imagePullPolicy":"Always","livenessProbe":{"failureThreshold":12,"httpGet":{"path":"/cjoc/login","port":8080},"initialDelaySeconds":300,"timeoutSeconds":5},"name":"jenkins","ports":[{"containerPort":8080,"name":"http"},{"containerPort":50000}],"resources":{"limits":{"cpu":"1","memory":"1G"},"requests":{"cpu":"1","memory":"1G"}},"volumeMounts":[{"mountPath":"/var/jenkins_home","name":"jenkins-home","readOnly":false},{"mountPath":"/var/jenkins_config/configure-jenkins.groovy.d","name":"jenkins-configure-jenkins-groovy","readOnly":true}]}],"securityContext":{"fsGroup":1000,"runAsUser":1000},"serviceAccountName":"cjoc","terminationGracePeriodSeconds":10,"volumes":[{"configMap":{"name":"cjoc-configure-jenkins-groovy"},"name":"jenkins-configure-jenkins-groovy"}]}},"updateStrategy":{"type":"RollingUpdate"},"volumeClaimTemplates":[{"metadata":{"labels":{"app":"cjoc","heritage":"Tiller","release":"**"},"name":"jenkins-home"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"20Gi"}}}}]}}
+
+current:
+{"apiVersion":"apps/v1","kind":"StatefulSet","metadata":{"annotations":{"jenkins.io/chart":"env","kubectl.kubernetes.io/last-applied-configuration":"{\"apiVersion\":\"apps/v1\",\"kind\":\"StatefulSet\",\"metadata\":{\"annotations\":{\"jenkins.io/chart\":\"env\"},\"labels\":{\"com.cloudbees.cje.tenant\":\"cjoc\",\"com.cloudbees.cje.type\":\"cjoc\",\"component\":\"**-cjoc\",\"heritage\":\"Tiller\",\"jenkins.io/chart-release\":\"**\",\"jenkins.io/namespace\":\"**-staging\",\"jenkins.io/version\":\"1\",\"release\":\"**\"},\"name\":\"cjoc\",\"namespace\":\"**-staging\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"com.cloudbees.cje.tenant\":\"cjoc\",\"com.cloudbees.cje.type\":\"cjoc\"}},\"serviceName\":\"cjoc\",\"template\":{\"metadata\":{\"labels\":{\"app\":\"cjoc\",\"com.cloudbees.cje.tenant\":\"cjoc\",\"com.cloudbees.cje.type\":\"cjoc\",\"component\":\"**-jenkins-master\",\"heritage\":\"Tiller\",\"release\":\"**\"},\"name\":\"cjoc\"},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"ENVIRONMENT\",\"value\":\"KUBERNETES\"},{\"name\":\"JENKINS_OPTS\",\"value\":\"--prefix=/cjoc \"},{\"name\":\"JAVA_OPTS\",\"value\":\"-XshowSettings:vm -XX:MaxRAMFraction=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:+PrintGCDetails -Dcb.IMProp.warProfiles.cje=kubernetes.json -Dcom.cloudbees.opscenter.analytics.reporter.JocAnalyticsReporter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.reporter.metrics.AperiodicMetricSubmitter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.FeederConfiguration.PERIOD=120 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.fsGroup=1000 -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.disableAutoConfiguration=true -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImageName=\\\"CloudBees Core - Managed Master - 2.176.2.3\\\" -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImage=cloudbees/cloudbees-core-mm:2.176.2.3 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.serviceAccount=jenkins\"}],\"image\":\"cloudbees/cloudbees-cloud-core-oc:2.176.2.3\",\"imagePullPolicy\":\"Always\",\"livenessProbe\":{\"failureThreshold\":12,\"httpGet\":{\"path\":\"/cjoc/login\",\"port\":8080},\"initialDelaySeconds\":300,\"timeoutSeconds\":5},\"name\":\"jenkins\",\"ports\":[{\"containerPort\":8080,\"name\":\"http\"},{\"containerPort\":50000}],\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"1G\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"1G\"}},\"volumeMounts\":[{\"mountPath\":\"/var/jenkins_home\",\"name\":\"jenkins-home\",\"readOnly\":false},{\"mountPath\":\"/var/jenkins_config/configure-jenkins.groovy.d\",\"name\":\"jenkins-configure-jenkins-groovy\",\"readOnly\":true}]}],\"securityContext\":{\"fsGroup\":1000,\"runAsUser\":1000},\"serviceAccountName\":\"cjoc\",\"terminationGracePeriodSeconds\":10,\"volumes\":[{\"configMap\":{\"name\":\"cjoc-configure-jenkins-groovy\"},\"name\":\"jenkins-configure-jenkins-groovy\"}]}},\"updateStrategy\":{\"type\":\"RollingUpdate\"},\"volumeClaimTemplates\":[{\"metadata\":{\"labels\":{\"app\":\"cjoc\",\"heritage\":\"Tiller\",\"release\":\"**\"},\"name\":\"jenkins-home\"},\"spec\":{\"accessModes\":[\"ReadWriteOnce\"],\"resources\":{\"requests\":{\"storage\":\"20Gi\"}}}}]}}\n"},"creationTimestamp":"2019-09-24T12:50:00Z","generation":1,"labels":{"com.cloudbees.cje.tenant":"cjoc","com.cloudbees.cje.type":"cjoc","component":"**-cjoc","heritage":"Tiller","jenkins.io/chart-release":"**","jenkins.io/namespace":"**-staging","jenkins.io/version":"1","release":"**"},"name":"cjoc","namespace":"**-staging","resourceVersion":"1614235","selfLink":"/apis/apps/v1/namespaces/**-staging/statefulsets/cjoc","uid":"d213386a-dec9-11e9-b6fa-f602efc27c36"},"spec":{"podManagementPolicy":"OrderedReady","replicas":1,"revisionHistoryLimit":10,"selector":{"matchLabels":{"com.cloudbees.cje.tenant":"cjoc","com.cloudbees.cje.type":"cjoc"}},"serviceName":"cjoc","template":{"metadata":{"creationTimestamp":null,"la
+bels":{"app":"cjoc","com.cloudbees.cje.tenant":"cjoc","com.cloudbees.cje.type":"cjoc","component":"**-jenkins-master","heritage":"Tiller","release":"**"},"name":"cjoc"},"spec":{"containers":[{"env":[{"name":"ENVIRONMENT","value":"KUBERNETES"},{"name":"JENKINS_OPTS","value":"--prefix=/cjoc "},{"name":"JAVA_OPTS","value":"-XshowSettings:vm -XX:MaxRAMFraction=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:+PrintGCDetails -Dcb.IMProp.warProfiles.cje=kubernetes.json -Dcom.cloudbees.opscenter.analytics.reporter.JocAnalyticsReporter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.reporter.metrics.AperiodicMetricSubmitter.PERIOD=120 -Dcom.cloudbees.opscenter.analytics.FeederConfiguration.PERIOD=120 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.fsGroup=1000 -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.disableAutoConfiguration=true -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImageName=\"CloudBees Core - Managed Master - 2.176.2.3\" -Dcom.cloudbees.jce.masterprovisioning.DockerImageDefinitionConfiguration.masterImage=cloudbees/cloudbees-core-mm:2.176.2.3 -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.serviceAccount=jenkins"}],"image":"cloudbees/cloudbees-cloud-core-oc:2.176.2.3","imagePullPolicy":"Always","livenessProbe":{"failureThreshold":12,"httpGet":{"path":"/cjoc/login","port":8080,"scheme":"HTTP"},"initialDelaySeconds":300,"periodSeconds":10,"successThreshold":1,"timeoutSeconds":5},"name":"jenkins","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"},{"containerPort":50000,"protocol":"TCP"}],"resources":{"limits":{"cpu":"1","memory":"1G"},"requests":{"cpu":"1","memory":"1G"}},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/var/jenkins_home","name":"jenkins-home"},{"mountPath":"/var/jenkins_config/configure-jenkins.groovy.d","name":"jenkins-configure-jenkins-groovy","readOnly":true}]}],"dnsPolicy":"ClusterFirst","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{"fsGroup":1000,"runAsUser":1000},"serviceAccount":"cjoc","serviceAccountName":"cjoc","terminationGracePeriodSeconds":10,"volumes":[{"configMap":{"defaultMode":420,"name":"cjoc-configure-jenkins-groovy"},"name":"jenkins-configure-jenkins-groovy"}]}},"updateStrategy":{"type":"RollingUpdate"},"volumeClaimTemplates":[{"metadata":{"creationTimestamp":null,"labels":{"app":"cjoc","heritage":"Tiller","release":"**"},"name":"jenkins-home"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"20Gi"}},"volumeMode":"Filesystem"},"status":{"phase":"Pending"}}]},"status":{"collisionCount":0,"currentReplicas":1,"currentRevision":"cjoc-7f574f7d8d","observedGeneration":1,"readyReplicas":1,"replicas":1,"updateRevision":"cjoc-7f574f7d8d","updatedReplicas":1}}
+
+for: "/tmp/helm-template-workdir-091427178/**/output/namespaces/**-staging/env/charts/cbcore/templates/part0-cjoc-statefulset.yaml": map: map[value:-Djenkins.model.Jenkins.crumbIssuerProxyCompatibility=true] does not contain declared merge key: name'
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-helm-apply'. The execution of the pipeline has stopped.[0m
