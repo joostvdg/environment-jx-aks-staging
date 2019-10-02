@@ -16,7 +16,7 @@ dependencies:
   repository: https://kubernetes-charts.storage.googleapis.com
   alias: grafana
 - name: cloudbees-core
-  version: 2.176.203
+  version: 3.5.0
   repository: https://charts.cloudbees.com/public/cloudbees
   alias: cbcore
 - name: prometheus
